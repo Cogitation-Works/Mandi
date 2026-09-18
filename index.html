@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antz and Beez — onion wholesale ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --plum:#1F2A26;
+  --plum-soft:#31423B;
+  --paper:#F5F7F3;
+  --paper-2:#E8EFE4;
+  --skin:#A8C09F;
+  --line:#D8E1D4;
+  --due:#B23A2E;
+  --paid:#4F9B33;
+  --gold:#F2C230;
+  --ink:#1B2320;
+  --ink-2:#6C7C72;
+  --card:#FFFFFF;
+  --logo:url("data:image/png;base64,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");
+}
+:root:not([data-theme="light"]){}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --plum:#151D1A; --plum-soft:#2A3830;
+    --paper:#111714; --paper-2:#1B2521; --card:#18211D;
+    --line:#2C3A33; --skin:#8FA98A;
+    --ink:#E9F0E9; --ink-2:#8FA096;
+    --due:#F08A72; --paid:#8CD16A; --gold:#F2C230;
+  }
+}
+:root[data-theme="dark"]{
+  --plum:#151D1A; --plum-soft:#2A3830;
+  --paper:#111714; --paper-2:#1B2521; --card:#18211D;
+  --line:#2C3A33; --skin:#8FA98A;
+  --ink:#E9F0E9; --ink-2:#8FA096;
+  --due:#F08A72; --paid:#8CD16A; --gold:#F2C230;
+}
+.logo{width:74px;height:37px;background:var(--logo) center/contain no-repeat;flex:0 0 auto}
+.logo.big{width:148px;height:75px}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Instrument Sans","Noto Sans Tamil",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px; line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+.num{font-family:"Bricolage Grotesque","Instrument Sans",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:-0.01em}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* shell */
+.app{max-width:520px;margin:0 auto;min-height:100vh;background:var(--paper);display:flex;flex-direction:column}
+.top{background:var(--plum);color:#FFF1EA;padding:14px 18px 16px;position:sticky;top:0;z-index:20}
+.top .brand{display:flex;align-items:center;gap:11px}
+.top h1{font-family:"Bricolage Grotesque",sans-serif;font-size:19px;font-weight:700;margin:0;letter-spacing:-0.02em}
+.top .sub{color:#D9A79E;font-size:12.5px;margin-top:1px}
+.iconbtn{background:rgba(255,255,255,.1);border:0;color:#FFF1EA;width:34px;height:34px;border-radius:10px;font-size:15px;display:grid;place-items:center}
+main{flex:1;padding:14px 14px 96px}
+section[hidden]{display:none}
+
+/* nav */
+nav{position:fixed;bottom:0;left:0;right:0;z-index:30;background:var(--card);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(5,1fr);max-width:520px;margin:0 auto;padding-bottom:env(safe-area-inset-bottom)}
+nav button{background:none;border:0;padding:9px 2px 11px;color:var(--ink-2);font-size:11.5px;display:flex;flex-direction:column;align-items:center;gap:3px}
+nav button b{font-size:17px;font-weight:400;line-height:1}
+nav button[aria-current="true"]{color:var(--paid);font-weight:600}
+nav button[aria-current="true"] b{transform:translateY(-1px)}
+
+/* hero */
+.hero{background:var(--plum);color:#FFF1EA;border-radius:16px;padding:18px 18px 16px;margin-bottom:14px}
+.hero .cap{color:var(--skin);font-size:13px}
+.hero .big{font-size:40px;font-weight:800;line-height:1.05;margin:4px 0 2px}
+.hero .meta{color:var(--skin);font-size:12.5px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.split div{background:rgba(255,255,255,.07);border-radius:10px;padding:9px 11px}
+.split span{display:block;color:var(--skin);font-size:12px}
+.split strong{font-size:19px;font-weight:700}
+
+/* generic */
+h2{font-family:"Bricolage Grotesque",sans-serif;font-size:15px;font-weight:700;margin:20px 0 8px;letter-spacing:-0.01em}
+h2:first-child{margin-top:4px}
+.muted{color:var(--ink-2);font-size:13px}
+.rows{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:11px 13px;border-bottom:1px solid var(--line);background:none;width:100%;text-align:left;border-left:0;border-right:0;border-top:0}
+.row:last-child{border-bottom:0}
+.row .who{flex:1;min-width:0}
+.row .who b{display:block;font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .who span{display:block;color:var(--ink-2);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.amt{font-weight:700;font-size:16px;white-space:nowrap}
+.amt.due{color:var(--due)} .amt.paid{color:var(--paid)} .amt.zero{color:var(--ink-2)}
+.pill{display:inline-block;font-size:11px;padding:1px 7px;border-radius:999px;border:1px solid var(--line);color:var(--ink-2)}
+.pill.hot{color:var(--due);border-color:var(--due)}
+.pill.ok{color:var(--paid);border-color:var(--paid)}
+.empty{border:1px dashed var(--line);border-radius:14px;padding:22px 16px;text-align:center;color:var(--ink-2);font-size:14px}
+.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:4px;font-weight:600}
+
+/* forms */
+label{display:block;font-size:13px;color:var(--ink-2);margin:12px 0 5px}
+input,select,textarea{width:100%;background:var(--card);border:1px solid var(--line);border-radius:11px;padding:11px 12px;font-size:16px}
+input[type=number]{font-family:"Bricolage Grotesque",sans-serif;font-variant-numeric:tabular-nums}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:6px}
+.chip{background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13.5px}
+.chip[aria-pressed="true"]{background:var(--plum);color:#FFF1EA;border-color:var(--plum)}
+.total{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:14px;display:flex;justify-content:space-between;align-items:baseline}
+.total span{font-size:13px;color:var(--ink-2)}
+.total b{font-size:26px;font-weight:800}
+.go{width:100%;margin-top:14px;background:var(--gold);color:#1B2320;border:0;border-radius:12px;padding:14px;font-size:16px;font-weight:600}
+.go.green{background:var(--paid)}
+.go.ghost{background:none;color:var(--ink-2);border:1px solid var(--line);font-weight:500;padding:11px}
+.warn{margin-top:10px;border-left:3px solid var(--gold);background:var(--paper-2);padding:9px 12px;border-radius:0 10px 10px 0;font-size:13px}
+.search{margin-bottom:10px}
+
+/* sheet */
+.scrim{position:fixed;inset:0;background:rgba(20,5,12,.55);z-index:40;display:none}
+.scrim.on{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-radius:20px 20px 0 0;
+  max-width:520px;margin:0 auto;max-height:90vh;overflow:auto;padding:8px 16px calc(24px + env(safe-area-inset-bottom));display:none}
+.sheet.on{display:block}
+.grab{width:38px;height:4px;background:var(--line);border-radius:2px;margin:6px auto 10px}
+.sheet h3{font-family:"Bricolage Grotesque",sans-serif;font-size:19px;margin:0 0 2px;letter-spacing:-0.02em}
+.ledger{margin-top:12px;border-top:1px solid var(--line)}
+.lrow{display:grid;grid-template-columns:52px 1fr auto;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.lrow .d{font-size:11.5px;color:var(--ink-2)}
+.lrow .t{font-size:13.5px}
+.lrow .t em{font-style:normal;color:var(--ink-2);font-size:12px;display:block}
+.lrow .v{text-align:right;font-weight:600;font-size:14px}
+.lrow .v small{display:block;font-weight:400;color:var(--ink-2);font-size:11.5px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:86px;background:var(--plum);color:#FFF1EA;
+  padding:10px 16px;border-radius:999px;font-size:14px;z-index:60;opacity:0;pointer-events:none;transition:opacity .18s}
+.toast.on{opacity:1}
+.tablines{width:100%;border-collapse:collapse;font-size:13.5px}
+.tablines th{text-align:left;font-weight:600;color:var(--ink-2);font-size:12px;padding:6px 0;border-bottom:1px solid var(--line)}
+.tablines td{padding:7px 0;border-bottom:1px solid var(--line)}
+.tablines td:last-child,.tablines th:last-child{text-align:right}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="logo" role="img" aria-label="Antz and Beez"></div>
+      <div style="flex:1;min-width:0">
+        <h1 id="bizName">Antz and Beez</h1>
+        <div class="sub" id="bizSub">Global Logistics Pvt Ltd</div>
+      </div>
+      <button class="iconbtn" id="settingsBtn" title="Settings">⚙</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="s-today"></section>
+    <section id="s-collect" hidden></section>
+    <section id="s-sale" hidden></section>
+    <section id="s-customers" hidden></section>
+    <section id="s-books" hidden></section>
+  </main>
+
+  <nav>
+    <button data-tab="today" aria-current="true"><b>▦</b>Today</button>
+    <button data-tab="collect"><b>₹</b>Collect</button>
+    <button data-tab="sale"><b>◉</b>New load</button>
+    <button data-tab="customers"><b>☷</b>Shops</button>
+    <button data-tab="books"><b>▤</b>Books</button>
+  </nav>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheet"><div class="grab"></div><div id="sheetBody"></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------- tiny helpers ---------- */
+const $ = s => document.querySelector(s);
+const el = (h)=>{const t=document.createElement('template');t.innerHTML=h.trim();return t.content.firstElementChild;};
+const esc = s => String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const money = n => '₹' + Math.round(Number(n)||0).toLocaleString('en-IN');
+const today = () => new Date().toISOString().slice(0,10);
+const dmy = d => { if(!d) return ''; const [y,m,dd]=d.split('-'); return dd+'/'+m; };
+const daysBetween = (a,b) => Math.round((new Date(b)-new Date(a))/86400000);
+const uid = p => p + Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('on'),1900); }
+
+/* ---------- state ---------- */
+const S = {
+  tab:'today',
+  customers:[],          // {id,name,shop,area,phone,limit,opening,createdAt,active}
+  ledger:{},             // docId -> {cid, month, entries:[...]}
+  settings:{biz:'Antz and Beez', line:'Global Logistics Pvt Ltd', bag:50, rate:0},
+  canWrite:true,
+  mode:'local'
+};
+const VARIETIES = ['Bellary','Sambar (small)','Pearl','Spring'];
+
+/* ---------- storage adapter: claude db, else localStorage ---------- */
+const Store = {
+  db:null,
+  async init(onReady){
+    try{ if(window.claude && window.claude.use){ this.db = await window.claude.use('db'); } }catch(e){ this.db=null; }
+    try{
+      const u = window.claude && window.claude.use ? await window.claude.use('user') : null;
+      if(u){ const w = await u.can('data.write'); if(w===false) S.canWrite=false; }
+    }catch(e){}
+    if(this.db){
+      S.mode='cloud';
+      this.db.collection('customers').onSnapshot(snap=>{
+        S.customers = snap.docs.map(d=>Object.assign({id:d.id}, d.data()));
+        onReady();
+      }, e=>{ console.warn('customers',e); });
+      this.db.collection('ledger').onSnapshot(snap=>{
+        const m={}; snap.docs.forEach(d=>{ m[d.id]=d.data(); });
+        S.ledger=m; onReady();
+      }, e=>{ console.warn('ledger',e); });
+      this.db.doc('meta/settings').onSnapshot(snap=>{
+        if(snap.exists){ const d=snap.data(); if(d.biz==='Mandi Book'){ delete d.biz; delete d.line; } S.settings = Object.assign(S.settings, d); }
+        onReady();
+      }, ()=>{});
+    }else{
+      S.mode='local';
+      this.load(); onReady();
+    }
+  },
+  load(){
+    try{
+      const raw = localStorage.getItem('anbledger');
+      if(raw){ const d = JSON.parse(raw); S.customers=d.customers||[]; S.ledger=d.ledger||{}; S.settings=Object.assign(S.settings,d.settings||{}); }
+    }catch(e){}
+  },
+  persistLocal(){
+    try{ localStorage.setItem('anbledger', JSON.stringify({customers:S.customers, ledger:S.ledger, settings:S.settings})); }
+    catch(e){ toast('Could not save on this device'); }
+  },
+  async saveCustomer(c){
+    if(this.db){ try{ const {id,...rest}=c; await this.db.doc('customers/'+id).set(rest); }
+      catch(e){ if(e&&e.code==='invalid_argument'){S.canWrite=false;} toast('Not saved — no write access'); } }
+    else this.persistLocal();
+  },
+  async deleteCustomer(id){
+    if(this.db){ try{ await this.db.doc('customers/'+id).delete(); }catch(e){ toast('Could not delete'); } }
+    else this.persistLocal();
+  },
+  async saveLedger(docId, doc){
+    if(this.db){ try{ await this.db.doc('ledger/'+docId).set(doc); }
+      catch(e){ toast('Entry not saved — try again'); } }
+    else this.persistLocal();
+  },
+  async saveSettings(){
+    if(this.db){ try{ await this.db.doc('meta/settings').set(S.settings); }catch(e){} }
+    else this.persistLocal();
+  }
+};
+
+/* ---------- ledger maths ---------- */
+function docIdFor(cid, date){ return cid + '-' + date.slice(0,7).replace('-',''); }
+function entriesOf(cid){
+  const out=[];
+  Object.keys(S.ledger).forEach(k=>{ const d=S.ledger[k]; if(d && d.cid===cid && Array.isArray(d.entries)) out.push(...d.entries); });
+  return out.sort((a,b)=> (a.date===b.date ? (a.ts||0)-(b.ts||0) : a.date.localeCompare(b.date)));
+}
+function allEntries(){
+  const out=[];
+  Object.keys(S.ledger).forEach(k=>{ const d=S.ledger[k]; if(d&&Array.isArray(d.entries)) d.entries.forEach(e=>out.push(Object.assign({cid:d.cid},e))); });
+  return out.sort((a,b)=> (a.date===b.date ? (b.ts||0)-(a.ts||0) : b.date.localeCompare(a.date)));
+}
+// sale & adjust add to what the shop owes; payment & return reduce it
+function signed(e){ return (e.type==='sale'||e.type==='adjust') ? Number(e.amount)||0 : -(Number(e.amount)||0); }
+function balanceOf(cid){
+  const c = S.customers.find(x=>x.id===cid);
+  let b = c ? (Number(c.opening)||0) : 0;
+  entriesOf(cid).forEach(e=> b += signed(e));
+  return b;
+}
+function lastPaidDate(cid){
+  const p = entriesOf(cid).filter(e=>e.type==='payment');
+  return p.length ? p[p.length-1].date : null;
+}
+function totalOutstanding(){ return S.customers.reduce((s,c)=> s + balanceOf(c.id), 0); }
+function dayTotals(date){
+  let sale=0, pay=0, kg=0;
+  allEntries().forEach(e=>{ if(e.date!==date) return;
+    if(e.type==='sale'){ sale+=Number(e.amount)||0; kg+=Number(e.qty)||0; }
+    else if(e.type==='payment'){ pay+=Number(e.amount)||0; } });
+  return {sale,pay,kg};
+}
+function custName(cid){ const c=S.customers.find(x=>x.id===cid); return c? c.name : 'Deleted shop'; }
+
+/* ---------- writes ---------- */
+async function addEntry(cid, entry){
+  entry.id = entry.id || uid('e');
+  entry.ts = Date.now();
+  const did = docIdFor(cid, entry.date);
+  const doc = S.ledger[did] ? JSON.parse(JSON.stringify(S.ledger[did])) : {cid, month:entry.date.slice(0,7), entries:[]};
+  doc.entries.push(entry);
+  S.ledger[did]=doc;
+  render();
+  await Store.saveLedger(did, doc);
+}
+async function removeEntry(cid, entryId, date){
+  const did = docIdFor(cid, date);
+  const doc = S.ledger[did]; if(!doc) return;
+  const nd = {cid:doc.cid, month:doc.month, entries: doc.entries.filter(e=>e.id!==entryId)};
+  S.ledger[did]=nd; render();
+  await Store.saveLedger(did, nd);
+}
+async function upsertCustomer(c){
+  const i = S.customers.findIndex(x=>x.id===c.id);
+  if(i>=0) S.customers[i]=c; else S.customers.push(c);
+  render();
+  await Store.saveCustomer(c);
+}
+
+/* ---------- sheet ---------- */
+function openSheet(html){ $('#sheetBody').innerHTML=''; $('#sheetBody').appendChild(el(html)); $('#sheet').classList.add('on'); $('#scrim').classList.add('on'); }
+function closeSheet(){ $('#sheet').classList.remove('on'); $('#scrim').classList.remove('on'); }
+$('#scrim').addEventListener('click', closeSheet);
+
+/* ================= SCREENS ================= */
+
+function viewToday(){
+  const out = totalOutstanding();
+  const t = dayTotals(today());
+  const dues = S.customers.map(c=>({c, b:balanceOf(c.id)})).filter(x=>x.b>0.5).sort((a,b)=>b.b-a.b);
+  const overdue = dues.filter(x=>{ const lp=lastPaidDate(x.c.id); return !lp || daysBetween(lp, today())>=3; });
+  const recent = allEntries().slice(0,8);
+
+  let h = `<div>
+    <div class="hero">
+      <div class="cap">Money on the street</div>
+      <div class="big num">${money(out)}</div>
+      <div class="meta">${dues.length} shop${dues.length===1?'':'s'} carrying a balance${overdue.length?` · ${overdue.length} not paid in 3+ days`:''}</div>
+      <div class="split">
+        <div><span>Sent out today</span><strong class="num">${money(t.sale)}</strong></div>
+        <div><span>Collected today</span><strong class="num">${money(t.pay)}</strong></div>
+      </div>
+    </div>`;
+
+  if(!S.customers.length){
+    h += `<div class="empty"><div class="logo big" style="margin:0 auto 10px"></div><b>Start with your shops</b>Add the retailers and hotels you supply, then record each load and each collection against them.
+      <button class="go" data-act="tab" data-v="customers" style="margin-top:14px">Add first shop</button>
+      <button class="go ghost" data-act="demo">Load 13 sample shops to explore</button></div>`;
+  } else {
+    h += `<h2>Chase these first</h2>`;
+    const list = (overdue.length?overdue:dues).slice(0,5);
+    h += `<div class="rows">` + list.map(x=>{
+      const lp=lastPaidDate(x.c.id);
+      const gap = lp? daysBetween(lp,today()) : null;
+      return `<button class="row" data-act="cust" data-v="${x.c.id}">
+        <div class="who"><b>${esc(x.c.name)}</b><span>${esc(x.c.area||x.c.shop||'')}${gap!=null?` · paid ${gap===0?'today':gap+'d ago'}`:' · never paid'}</span></div>
+        <div class="amt due num">${money(x.b)}</div></button>`;
+    }).join('') + `</div>`;
+
+    h += `<h2>Recent entries</h2>`;
+    h += recent.length ? `<div class="rows">` + recent.map(e=>`
+      <button class="row" data-act="cust" data-v="${e.cid}">
+        <div class="who"><b>${esc(custName(e.cid))}</b><span>${dmy(e.date)} · ${e.type==='sale'?`${e.qty||0} kg @ ₹${e.rate||0}`:(e.type==='payment'?('collection · '+esc(e.mode||'cash')):esc(e.type))}</span></div>
+        <div class="amt num ${e.type==='sale'?'due':(e.type==='payment'?'paid':'zero')}">${e.type==='sale'?'+':'−'}${money(e.amount)}</div>
+      </button>`).join('') + `</div>` : `<div class="empty">Nothing recorded yet today.</div>`;
+  }
+  h += `</div>`;
+  return h;
+}
+
+function viewCollect(){
+  const q = (S._cq||'').toLowerCase();
+  let dues = S.customers.map(c=>({c,b:balanceOf(c.id)})).filter(x=>x.b>0.5);
+  if(q) dues = dues.filter(x=> (x.c.name+' '+(x.c.area||'')+' '+(x.c.shop||'')).toLowerCase().includes(q));
+  dues.sort((a,b)=>b.b-a.b);
+  const t = dayTotals(today());
+  const paidToday = new Set(allEntries().filter(e=>e.date===today()&&e.type==='payment').map(e=>e.cid));
+
+  let h = `<div>
+    <div class="hero" style="padding:14px 16px">
+      <div class="cap">Collected today</div>
+      <div class="big num" style="font-size:32px">${money(t.pay)}</div>
+      <div class="meta">${paidToday.size} of ${dues.length + paidToday.size} shops covered</div>
+    </div>
+    <input class="search" id="cq" placeholder="Search shop or area" value="${esc(S._cq||'')}">`;
+
+  if(!dues.length){
+    h += `<div class="empty"><b>Nothing pending</b>Every shop is settled, or you haven't recorded any loads yet.</div>`;
+  } else {
+    h += `<div class="rows">` + dues.map(x=>{
+      const lp = lastPaidDate(x.c.id);
+      const gap = lp? daysBetween(lp,today()) : null;
+      const hot = gap===null || gap>=3;
+      return `<button class="row" data-act="pay" data-v="${x.c.id}">
+        <div class="who"><b>${esc(x.c.name)}</b><span>${esc(x.c.area||'—')} ${paidToday.has(x.c.id)?'· <span class="pill ok">paid today</span>':(hot?'· <span class="pill hot">'+(gap===null?'never paid':gap+' days')+'</span>':'')}</span></div>
+        <div class="amt due num">${money(x.b)}</div></button>`;
+    }).join('') + `</div>
+    <p class="muted" style="margin-top:10px">Tap a shop to enter what you collected. Part payments are fine — the balance carries forward.</p>`;
+  }
+  return h + `</div>`;
+}
+
+function viewSale(){
+  const d = S._sale || (S._sale = {cid:'', date:today(), unit:'bag', bags:'', bagkg:S.settings.bag||50, kg:'', rate:S.settings.rate||'', variety:'Bellary', note:''});
+  const kgs = d.unit==='bag' ? (Number(d.bags)||0)*(Number(d.bagkg)||0) : (Number(d.kg)||0);
+  const amount = kgs * (Number(d.rate)||0);
+  const cust = S.customers.find(c=>c.id===d.cid);
+  const bal = cust? balanceOf(cust.id) : 0;
+  const over = cust && Number(cust.limit)>0 && (bal+amount) > Number(cust.limit);
+
+  return `<div>
+    <h2>Record a load</h2>
+    ${!S.customers.length?`<div class="empty"><b>No shops yet</b>Add a shop first, then you can send loads against it.
+      <button class="go" data-act="tab" data-v="customers" style="margin-top:12px">Go to shops</button></div>`:`
+    <label for="f-cid">Shop</label>
+    <select id="f-cid" data-f="cid">
+      <option value="">Choose a shop</option>
+      ${S.customers.slice().sort((a,b)=>a.name.localeCompare(b.name)).map(c=>`<option value="${c.id}" ${c.id===d.cid?'selected':''}>${esc(c.name)}${c.area?' — '+esc(c.area):''}</option>`).join('')}
+    </select>
+
+    <label>Quantity</label>
+    <div class="chips">
+      <button class="chip" data-f="unit" data-v="bag" aria-pressed="${d.unit==='bag'}">Bags</button>
+      <button class="chip" data-f="unit" data-v="kg" aria-pressed="${d.unit==='kg'}">Loose kg</button>
+    </div>
+    ${d.unit==='bag'
+      ? `<div class="two" style="margin-top:8px">
+           <input type="number" inputmode="decimal" placeholder="Bags" data-f="bags" value="${esc(d.bags)}">
+           <input type="number" inputmode="decimal" placeholder="kg per bag" data-f="bagkg" value="${esc(d.bagkg)}">
+         </div>`
+      : `<input type="number" inputmode="decimal" placeholder="Total kg" data-f="kg" value="${esc(d.kg)}" style="margin-top:8px">`}
+
+    <div class="two">
+      <div><label for="f-rate">Rate per kg</label><input id="f-rate" type="number" inputmode="decimal" placeholder="₹" data-f="rate" value="${esc(d.rate)}"></div>
+      <div><label for="f-date">Date</label><input id="f-date" type="date" data-f="date" value="${d.date}"></div>
+    </div>
+
+    <label>Variety</label>
+    <div class="chips">${VARIETIES.map(v=>`<button class="chip" data-f="variety" data-v="${v}" aria-pressed="${d.variety===v}">${v}</button>`).join('')}</div>
+
+    <label for="f-note">Note (vehicle, lot, anything)</label>
+    <input id="f-note" data-f="note" value="${esc(d.note)}" placeholder="Optional">
+
+    <div class="total"><span>${kgs.toLocaleString('en-IN')} kg × ₹${Number(d.rate)||0}</span><b class="num">${money(amount)}</b></div>
+    ${cust?`<p class="muted" style="margin-top:8px">${esc(cust.name)} owes ${money(bal)} now → ${money(bal+amount)} after this load.</p>`:''}
+    ${over?`<div class="warn">This crosses the credit limit of ${money(cust.limit)} you set for ${esc(cust.name)}. Send it only if you're comfortable.</div>`:''}
+    <button class="go" data-act="saveSale" ${(!d.cid||!amount)?'disabled style="opacity:.45"':''}>Save load</button>
+    `}
+  </div>`;
+}
+
+function viewCustomers(){
+  const q=(S._kq||'').toLowerCase();
+  let list = S.customers.slice();
+  if(q) list = list.filter(c=>(c.name+' '+(c.area||'')+' '+(c.phone||'')+' '+(c.shop||'')).toLowerCase().includes(q));
+  list.sort((a,b)=> balanceOf(b.id)-balanceOf(a.id) || a.name.localeCompare(b.name));
+
+  let h = `<div>
+    <h2>Shops you supply <span class="muted">· ${S.customers.length}</span></h2>
+    <input class="search" id="kq" placeholder="Search name, area or phone" value="${esc(S._kq||'')}">`;
+  h += list.length ? `<div class="rows">` + list.map(c=>{
+      const b=balanceOf(c.id);
+      return `<button class="row" data-act="cust" data-v="${c.id}">
+        <div class="who"><b>${esc(c.name)}</b><span>${esc(c.shop||'')}${c.shop&&c.area?' · ':''}${esc(c.area||'')}${c.phone?' · '+esc(c.phone):''}</span></div>
+        <div class="amt num ${b>0.5?'due':(b<-0.5?'paid':'zero')}">${b<-0.5?'advance ':''}${money(Math.abs(b))}</div></button>`;
+    }).join('') + `</div>`
+    : `<div class="empty"><b>No shops yet</b>Add the retailers, hotels and pushcart vendors you give stock to.</div>`;
+  h += `<button class="go" data-act="newCust" style="margin-top:14px">Add a shop</button>`;
+  if(!S.customers.length) h += `<button class="go ghost" data-act="demo">Load 13 sample shops to explore</button>`;
+  return h + `</div>`;
+}
+
+function viewBooks(){
+  const r = S._range || (S._range = {from: today().slice(0,8)+'01', to: today()});
+  const ent = allEntries().filter(e=> e.date>=r.from && e.date<=r.to);
+  const sale = ent.filter(e=>e.type==='sale').reduce((s,e)=>s+(+e.amount||0),0);
+  const pay = ent.filter(e=>e.type==='payment').reduce((s,e)=>s+(+e.amount||0),0);
+  const kg = ent.filter(e=>e.type==='sale').reduce((s,e)=>s+(+e.qty||0),0);
+  const rates = ent.filter(e=>e.type==='sale'&&e.rate);
+  const avg = rates.length ? rates.reduce((s,e)=>s+(+e.rate),0)/rates.length : 0;
+
+  // per-day roll-up
+  const byDay={};
+  ent.forEach(e=>{ byDay[e.date]=byDay[e.date]||{sale:0,pay:0}; byDay[e.date][e.type==='sale'?'sale':(e.type==='payment'?'pay':'sale')] += (+e.amount||0); });
+  const days = Object.keys(byDay).sort().reverse();
+
+  return `<div>
+    <h2>Day book</h2>
+    <div class="two">
+      <div><label for="f-from">From</label><input id="f-from" type="date" data-r="from" value="${r.from}"></div>
+      <div><label for="f-to">To</label><input id="f-to" type="date" data-r="to" value="${r.to}"></div>
+    </div>
+    <div class="split" style="margin-top:14px">
+      <div style="background:var(--paper-2);border:1px solid var(--line)"><span class="muted">Stock sent</span><strong class="num">${money(sale)}</strong></div>
+      <div style="background:var(--paper-2);border:1px solid var(--line)"><span class="muted">Cash collected</span><strong class="num">${money(pay)}</strong></div>
+    </div>
+    <p class="muted" style="margin-top:10px">${kg.toLocaleString('en-IN')} kg moved${avg?` · average rate ₹${avg.toFixed(2)}/kg`:''} · closing dues ${money(totalOutstanding())}</p>
+
+    ${days.length?`<table class="tablines" style="margin-top:14px"><tr><th>Date</th><th>Sent</th><th>Collected</th></tr>
+      ${days.map(d=>`<tr><td>${dmy(d)}</td><td class="num">${money(byDay[d].sale)}</td><td class="num">${money(byDay[d].pay)}</td></tr>`).join('')}
+    </table>`:`<div class="empty" style="margin-top:14px">No entries in this range.</div>`}
+
+    <h2>Outstanding by shop</h2>
+    ${S.customers.length?`<table class="tablines"><tr><th>Shop</th><th>Last paid</th><th>Balance</th></tr>
+      ${S.customers.map(c=>({c,b:balanceOf(c.id)})).sort((a,b)=>b.b-a.b).map(x=>{
+        const lp=lastPaidDate(x.c.id);
+        return `<tr><td>${esc(x.c.name)}</td><td class="muted">${lp?dmy(lp):'—'}</td><td class="num" style="color:${x.b>0.5?'var(--due)':'var(--ink-2)'}">${money(x.b)}</td></tr>`;
+      }).join('')}</table>`:`<div class="empty">Add shops to see this.</div>`}
+
+    <button class="go ghost" data-act="csv" style="margin-top:16px">Export these entries as CSV</button>
+    <button class="go ghost" data-act="csvDues">Export outstanding list as CSV</button>
+  </div>`;
+}
+
+/* ---------- customer sheet ---------- */
+function sheetCustomer(cid){
+  const c = S.customers.find(x=>x.id===cid); if(!c) return;
+  const ent = entriesOf(cid).slice().reverse();
+  const bal = balanceOf(cid);
+  const lp = lastPaidDate(cid);
+  let running = bal;
+  const rows = ent.map(e=>{
+    const shown = running;
+    running = running - signed(e);
+    return `<div class="lrow">
+      <div class="d num">${dmy(e.date)}</div>
+      <div class="t">${e.type==='sale'?'Load sent':(e.type==='payment'?'Payment received':(e.type==='return'?'Return / short':'Adjustment'))}
+        <em>${e.type==='sale'?`${e.qty||0} kg @ ₹${e.rate||0}${e.variety?' · '+esc(e.variety):''}`:esc(e.mode||e.note||'')}${e.type==='sale'&&e.note?' · '+esc(e.note):''}</em></div>
+      <div class="v num" style="color:${signed(e)>0?'var(--due)':'var(--paid)'}">${signed(e)>0?'+':'−'}${money(Math.abs(e.amount))}
+        <small>bal ${money(shown)}</small></div>
+    </div>`;
+  }).join('');
+
+  openSheet(`<div>
+    <h3>${esc(c.name)}</h3>
+    <div class="muted">${esc([c.shop,c.area,c.phone].filter(Boolean).join(' · ')) || 'No contact details'}</div>
+    <div class="total" style="margin-top:12px"><span>Balance due${lp?` · last paid ${dmy(lp)}`:''}</span><b class="num" style="color:${bal>0.5?'var(--due)':'var(--paid)'}">${money(bal)}</b></div>
+    ${Number(c.limit)>0?`<p class="muted" style="margin-top:6px">Credit limit ${money(c.limit)} · ${bal>=Number(c.limit)?'reached':money(Number(c.limit)-bal)+' headroom'}</p>`:''}
+    <div class="two" style="margin-top:12px">
+      <button class="go green" data-act="pay" data-v="${c.id}" style="margin:0">Record payment</button>
+      <button class="go" data-act="loadFor" data-v="${c.id}" style="margin:0">Send a load</button>
+    </div>
+    <div class="two" style="margin-top:8px">
+      <button class="go ghost" data-act="editCust" data-v="${c.id}" style="margin:0">Edit details</button>
+      <button class="go ghost" data-act="copyStmt" data-v="${c.id}" style="margin:0">Copy statement</button>
+    </div>
+    <h2>Ledger</h2>
+    ${rows ? `<div class="ledger">${rows}</div>` : `<div class="empty">No entries yet for this shop.</div>`}
+    <p class="muted" style="margin-top:10px">Opening balance ${money(c.opening||0)}. Long-press an entry in a real build to delete; here use the button below.</p>
+    ${ent.length?`<button class="go ghost" data-act="undoLast" data-v="${c.id}">Delete the latest entry</button>`:''}
+  </div>`);
+}
+
+function sheetPayment(cid){
+  const c=S.customers.find(x=>x.id===cid); if(!c) return;
+  const bal=balanceOf(cid);
+  openSheet(`<div>
+    <h3>Collect from ${esc(c.name)}</h3>
+    <div class="muted">Outstanding ${money(bal)}</div>
+    <label for="p-amt">Amount received</label>
+    <input id="p-amt" type="number" inputmode="decimal" placeholder="₹" value="">
+    <div class="chips">
+      <button class="chip" data-quick="${Math.round(bal)}">Full ${money(bal)}</button>
+      <button class="chip" data-quick="${Math.round(bal/2)}">Half</button>
+      <button class="chip" data-quick="1000">₹1,000</button>
+      <button class="chip" data-quick="5000">₹5,000</button>
+    </div>
+    <label>How</label>
+    <div class="chips" id="p-mode">
+      <button class="chip" data-mode="cash" aria-pressed="true">Cash</button>
+      <button class="chip" data-mode="UPI" aria-pressed="false">UPI</button>
+      <button class="chip" data-mode="bank" aria-pressed="false">Bank</button>
+      <button class="chip" data-mode="cheque" aria-pressed="false">Cheque</button>
+    </div>
+    <div class="two">
+      <div><label for="p-date">Date</label><input id="p-date" type="date" value="${today()}"></div>
+      <div><label for="p-note">Note</label><input id="p-note" placeholder="Optional"></div>
+    </div>
+    <button class="go green" id="p-save">Save payment</button>
+    <button class="go ghost" data-act="return" data-v="${c.id}">Record a return or weight short instead</button>
+  </div>`);
+  const body=$('#sheetBody');
+  body.querySelectorAll('[data-quick]').forEach(b=>b.addEventListener('click',()=>{ $('#p-amt').value=b.dataset.quick; }));
+  body.querySelectorAll('#p-mode .chip').forEach(b=>b.addEventListener('click',()=>{
+    body.querySelectorAll('#p-mode .chip').forEach(x=>x.setAttribute('aria-pressed','false'));
+    b.setAttribute('aria-pressed','true');
+  }));
+  $('#p-save').addEventListener('click', async ()=>{
+    const amt=Number($('#p-amt').value);
+    if(!amt||amt<=0){ toast('Enter the amount received'); return; }
+    const mode=(body.querySelector('#p-mode .chip[aria-pressed="true"]')||{}).dataset.mode||'cash';
+    closeSheet();
+    await addEntry(cid,{type:'payment',date:$('#p-date').value||today(),amount:amt,mode,note:$('#p-note').value.trim()});
+    toast(money(amt)+' from '+c.name);
+  });
+}
+
+function sheetReturn(cid){
+  const c=S.customers.find(x=>x.id===cid); if(!c) return;
+  openSheet(`<div>
+    <h3>Return or adjustment</h3>
+    <div class="muted">Reduces what ${esc(c.name)} owes — rotten stock, weight short, or a discount you allowed.</div>
+    <label for="r-amt">Amount to reduce</label>
+    <input id="r-amt" type="number" inputmode="decimal" placeholder="₹">
+    <label for="r-note">Reason</label>
+    <input id="r-note" placeholder="e.g. 20 kg spoiled">
+    <div><label for="r-date">Date</label><input id="r-date" type="date" value="${today()}"></div>
+    <button class="go" id="r-save">Save adjustment</button>
+  </div>`);
+  $('#r-save').addEventListener('click', async()=>{
+    const amt=Number($('#r-amt').value);
+    if(!amt||amt<=0){ toast('Enter an amount'); return; }
+    closeSheet();
+    await addEntry(cid,{type:'return',date:$('#r-date').value||today(),amount:amt,note:$('#r-note').value.trim()});
+    toast('Adjustment saved');
+  });
+}
+
+function sheetCustomerForm(cid){
+  const c = cid ? S.customers.find(x=>x.id===cid) : null;
+  openSheet(`<div>
+    <h3>${c?'Edit shop':'New shop'}</h3>
+    <label for="c-name">Owner or shop name</label><input id="c-name" value="${esc(c?c.name:'')}" placeholder="e.g. Murugan Stores">
+    <div class="two">
+      <div><label for="c-area">Area / market</label><input id="c-area" value="${esc(c?c.area:'')}" placeholder="e.g. Koyambedu"></div>
+      <div><label for="c-phone">Phone</label><input id="c-phone" type="tel" value="${esc(c?c.phone:'')}" placeholder="10 digits"></div>
+    </div>
+    <div class="two">
+      <div><label for="c-type">Type</label>
+        <select id="c-type">${['Retail shop','Supermarket','Hotel / mess','Caterer','Pushcart','Sub-wholesaler','Other'].map(t=>`<option ${c&&c.shop===t?'selected':''}>${t}</option>`).join('')}</select></div>
+      <div><label for="c-limit">Credit limit</label><input id="c-limit" type="number" inputmode="decimal" value="${esc(c?c.limit:'')}" placeholder="₹ optional"></div>
+    </div>
+    ${c?'':`<label for="c-open">Opening balance they already owe</label><input id="c-open" type="number" inputmode="decimal" placeholder="₹ 0">`}
+    <button class="go" id="c-save">${c?'Save changes':'Add shop'}</button>
+    ${c?`<button class="go ghost" id="c-del">Remove this shop</button>`:''}
+  </div>`);
+  $('#c-save').addEventListener('click', async ()=>{
+    const name=$('#c-name').value.trim();
+    if(!name){ toast('Give the shop a name'); return; }
+    const rec = {
+      id: c? c.id : uid('c'),
+      name, area:$('#c-area').value.trim(), phone:$('#c-phone').value.trim(),
+      shop:$('#c-type').value, limit:Number($('#c-limit').value)||0,
+      opening: c? (Number(c.opening)||0) : (Number(($('#c-open')||{}).value)||0),
+      createdAt: c? c.createdAt : today(), active:true
+    };
+    closeSheet(); await upsertCustomer(rec); toast(c?'Saved':name+' added');
+  });
+  const del=$('#c-del');
+  if(del) del.addEventListener('click', async ()=>{
+    if(!confirm('Remove '+c.name+'? Their ledger entries stay in the books.')) return;
+    S.customers = S.customers.filter(x=>x.id!==c.id);
+    closeSheet(); render(); await Store.deleteCustomer(c.id); toast('Shop removed');
+  });
+}
+
+function sheetSettings(){
+  openSheet(`<div>
+    <div class="logo big" role="img" aria-label="Antz and Beez Global Logistics"></div>
+    <h3 style="margin-top:6px">Settings</h3>
+    <label for="st-biz">Business name</label><input id="st-biz" value="${esc(S.settings.biz)}">
+    <label for="st-line">Subtitle</label><input id="st-line" value="${esc(S.settings.line)}">
+    <div class="two">
+      <div><label for="st-bag">Default kg per bag</label><input id="st-bag" type="number" value="${esc(S.settings.bag)}"></div>
+      <div><label for="st-rate">Today's rate ₹/kg</label><input id="st-rate" type="number" value="${esc(S.settings.rate)}"></div>
+    </div>
+    <button class="go" id="st-save">Save settings</button>
+    <p class="muted" style="margin-top:14px">Data is stored ${S.mode==='cloud'?'in this artifact, so it syncs for everyone you share it with':'in this browser only — it stays on this device'}.</p>
+    <button class="go ghost" data-act="demo">Load sample data</button>
+    <button class="go ghost" id="st-wipe">Erase everything</button>
+  </div>`);
+  $('#st-save').addEventListener('click', async ()=>{
+    S.settings.biz=$('#st-biz').value.trim()||'Antz and Beez';
+    S.settings.line=$('#st-line').value.trim();
+    S.settings.bag=Number($('#st-bag').value)||50;
+    S.settings.rate=Number($('#st-rate').value)||0;
+    closeSheet(); render(); await Store.saveSettings(); toast('Settings saved');
+  });
+  $('#st-wipe').addEventListener('click', async ()=>{
+    if(!confirm('Erase all shops and entries?')) return;
+    const cs=S.customers.slice(), ls=Object.keys(S.ledger);
+    S.customers=[]; S.ledger={}; closeSheet(); render();
+    if(Store.db){ for(const c of cs){ try{await Store.db.doc('customers/'+c.id).delete();}catch(e){} }
+      for(const k of ls){ try{await Store.db.doc('ledger/'+k).delete();}catch(e){} } }
+    else Store.persistLocal();
+    toast('Cleared');
+  });
+}
+
+/* ---------- CSV ---------- */
+function csvEscape(v){ v=String(v==null?'':v); return /[",\n]/.test(v)? '"'+v.replace(/"/g,'""')+'"' : v; }
+async function offerCSV(filename, rows){
+  const text = rows.map(r=>r.map(csvEscape).join(',')).join('\n');
+  let dl=null;
+  try{ if(window.claude && window.claude.use) dl = await window.claude.use('downloads'); }catch(e){}
+  if(dl){
+    try{ await dl.save({filename, data:text}); toast('Saved '+filename); return; }catch(e){}
+  }
+  openSheet(`<div><h3>${esc(filename)}</h3><div class="muted">Copy this into a spreadsheet.</div>
+    <textarea rows="12" style="margin-top:10px;font-family:ui-monospace,monospace;font-size:12px">${esc(text)}</textarea>
+    <button class="go" id="cp">Copy to clipboard</button></div>`);
+  $('#cp').addEventListener('click', ()=>{
+    const ta=$('#sheetBody textarea'); ta.select();
+    try{ navigator.clipboard.writeText(ta.value); }catch(e){ document.execCommand('copy'); }
+    toast('Copied');
+  });
+}
+
+/* ---------- statement text ---------- */
+function statementText(cid){
+  const c=S.customers.find(x=>x.id===cid);
+  const ent=entriesOf(cid).slice(-12);
+  const lines=[`${S.settings.biz} — statement for ${c.name}`,''];
+  ent.forEach(e=> lines.push(`${dmy(e.date)}  ${e.type==='sale'?`load ${e.qty||0}kg @${e.rate||0}`:(e.type==='payment'?`paid (${e.mode||'cash'})`:'adjustment')}  ${signed(e)>0?'+':'-'}${money(Math.abs(e.amount))}`));
+  lines.push('', `Balance due: ${money(balanceOf(cid))}`);
+  return lines.join('\n');
+}
+
+/* ---------- demo data ---------- */
+const DEMO = [
+  {name:'Murugan Stores',        shop:'Retail shop',    area:'Koyambedu',     phone:'9840012345', limit:40000,  opening:0,     every:1, bags:[3,7],  payRate:0.75, payDelay:1, style:'good'},
+  {name:'Amudham Mess',          shop:'Hotel / mess',   area:'Porur',         phone:'9445567890', limit:75000,  opening:8500,  every:1, bags:[4,9],  payRate:0.55, payDelay:2, style:'slow'},
+  {name:'Selvi Vegetables',      shop:'Retail shop',    area:'Saidapet',      phone:'9789011223', limit:25000,  opening:0,     every:2, bags:[2,5],  payRate:0.9,  payDelay:1, style:'good'},
+  {name:'Raja Pushcart',         shop:'Pushcart',       area:'T Nagar',       phone:'9600045678', limit:8000,   opening:1200,  every:1, bags:[1,2],  payRate:0.95, payDelay:0, style:'daily'},
+  {name:'KPS Traders',           shop:'Sub-wholesaler', area:'Madhavaram',    phone:'9382211445', limit:150000, opening:0,     every:2, bags:[20,40],payRate:0.6,  payDelay:3, style:'bulk'},
+  {name:'New Sri Lakshmi Stores',shop:'Retail shop',    area:'Ambattur',      phone:'9791134567', limit:35000,  opening:0,     every:2, bags:[3,6],  payRate:0.8,  payDelay:2, style:'good'},
+  {name:'Vasanth Vegetable Mart',shop:'Retail shop',    area:'Tambaram',      phone:'9962278901', limit:45000,  opening:4300,  every:1, bags:[4,8],  payRate:0.7,  payDelay:2, style:'good'},
+  {name:'Iyappan Catering',      shop:'Caterer',        area:'Ashok Nagar',   phone:'9500067234', limit:90000,  opening:0,     every:4, bags:[15,30],payRate:1.0,  payDelay:5, style:'lumpy'},
+  {name:'Fathima Stores',        shop:'Retail shop',    area:'Triplicane',    phone:'9884490011', limit:20000,  opening:2600,  every:2, bags:[2,4],  payRate:0.5,  payDelay:4, style:'slow'},
+  {name:'Kumar Onion Depot',     shop:'Sub-wholesaler', area:'Chengalpattu',  phone:'9345612780', limit:120000, opening:0,     every:3, bags:[25,50],payRate:0.65, payDelay:3, style:'bulk'},
+  {name:'Green Leaf Supermarket',shop:'Supermarket',    area:'Velachery',     phone:'9176623410', limit:100000, opening:0,     every:3, bags:[10,18],payRate:1.0,  payDelay:7, style:'credit'},
+  {name:'Bala Pushcart',         shop:'Pushcart',       area:'Choolaimedu',   phone:'9025578866', limit:6000,   opening:0,     every:1, bags:[1,2],  payRate:1.0,  payDelay:0, style:'daily'},
+  {name:'Sharada Hotel',         shop:'Hotel / mess',   area:'Perambur',      phone:'9840776655', limit:50000,  opening:14200, every:2, bags:[5,10], payRate:0.3,  payDelay:6, style:'defaulter'}
+];
+const DEMO_RATES = [26,26.5,27,28,27.5,29,30,31,30.5,29.5,31,32,33,32.5,31.5,30,29,28.5,30,31.5,33,34,33.5,32];
+
+async function loadDemo(){
+  let s = 20260918;
+  const rnd = () => (s = (s*1103515245 + 12345) & 0x7fffffff) / 0x7fffffff;
+  const pick = (a,b) => a + Math.floor(rnd()*(b-a+1));
+  const DAYS = DEMO_RATES.length;                       // last 24 days
+  const base = new Date(); base.setHours(12,0,0,0);
+  const dayStr = n => { const x=new Date(base); x.setDate(x.getDate()-n); return x.toISOString().slice(0,10); };
+
+  const made = [], ledger = {};
+  let tick = Date.now() - 1e7;
+  const push = (cid, e) => {
+    e.id = uid('e'); e.ts = tick++;
+    const did = docIdFor(cid, e.date);
+    (ledger[did] = ledger[did] || {cid, month:e.date.slice(0,7), entries:[]}).entries.push(e);
+  };
+
+  DEMO.forEach(p => {
+    const c = {id:uid('c'), name:p.name, shop:p.shop, area:p.area, phone:p.phone,
+               limit:p.limit, opening:p.opening, createdAt:dayStr(DAYS+10), active:true};
+    made.push(c);
+    let bal = p.opening;
+    const pending = [];                                  // payments scheduled for later days
+
+    for (let n = DAYS-1; n >= 0; n--) {
+      const date = dayStr(n);
+      const dow = new Date(date).getDay();
+
+      // settle anything scheduled for today
+      for (let i = pending.length-1; i >= 0; i--) {
+        if (pending[i].on >= n) {
+          const amt = Math.min(bal, pending[i].amt);
+          if (amt > 100) {
+            const mode = p.style==='daily' ? 'cash' : (rnd()<0.55?'cash':(rnd()<0.6?'UPI':'bank'));
+            push(c.id, {type:'payment', date, amount:Math.round(amt/10)*10, mode, note:''});
+            bal -= Math.round(amt/10)*10;
+          }
+          pending.splice(i,1);
+        }
+      }
+
+      // a load goes out?
+      const send = (n % p.every === 0) && !(dow===0 && p.style!=='daily') && rnd() < 0.88;
+      if (send && n > 0) {
+        const bags = pick(p.bags[0], p.bags[1]);
+        const kgPerBag = p.style==='daily' ? 25 : 50;
+        const rate = DEMO_RATES[DAYS-1-n] + (p.style==='bulk' ? -1 : 0);
+        const qty = bags * kgPerBag;
+        const amount = Math.round(qty * rate);
+        const variety = rnd()<0.62 ? 'Bellary' : (rnd()<0.6 ? 'Sambar (small)' : 'Pearl');
+        push(c.id, {type:'sale', date, qty, rate, amount, variety,
+                    note: bags>=20 ? `${bags} bags · lorry TN 11 ${pick(1000,9999)}` : `${bags} bags`});
+        bal += amount;
+        if (p.style !== 'defaulter' || rnd() < 0.35) {
+          pending.push({on: Math.max(0, n - p.payDelay), amt: amount * p.payRate * (0.8 + rnd()*0.4)});
+        }
+      }
+
+      // occasional return / weight short
+      if (rnd() < 0.035 && bal > 2000) {
+        const amt = pick(2,9) * 100;
+        push(c.id, {type:'return', date, amount:amt, note: rnd()<0.5 ? `${pick(8,25)} kg spoiled` : 'weight short'});
+        bal -= amt;
+      }
+    }
+  });
+
+  S.customers = S.customers.concat(made);
+  Object.assign(S.ledger, ledger);
+  S.settings.rate = DEMO_RATES[DEMO_RATES.length-1];
+  S.settings.bag = 50;
+  closeSheet(); render(); toast('Loading 13 shops…');
+
+  for (const c of made) await Store.saveCustomer(c);
+  for (const k of Object.keys(ledger)) await Store.saveLedger(k, ledger[k]);
+  await Store.saveSettings();
+  render();
+  toast('13 shops · ' + Object.keys(ledger).reduce((n,k)=>n+ledger[k].entries.length,0) + ' entries loaded');
+}
+
+/* ---------- render + events ---------- */
+function render(){
+  $('#bizName').textContent = S.settings.biz || 'Antz and Beez';
+  $('#bizSub').textContent = S.settings.line || '';
+  const map = {today:viewToday, collect:viewCollect, sale:viewSale, customers:viewCustomers, books:viewBooks};
+  ['today','collect','sale','customers','books'].forEach(t=>{
+    const sec = $('#s-'+t);
+    sec.hidden = (t!==S.tab);
+    if(t===S.tab){ sec.innerHTML=''; sec.appendChild(el(map[t]())); }
+  });
+  document.querySelectorAll('nav button').forEach(b=> b.setAttribute('aria-current', String(b.dataset.tab===S.tab)));
+  if(!S.canWrite){
+    const m=$('#s-'+S.tab);
+    m.insertBefore(el(`<div class="warn">You can view this book but not change it. Ask the owner for edit access.</div>`), m.firstChild);
+    m.querySelectorAll('button.go, input, select').forEach(x=>x.disabled=true);
+  }
+}
+
+document.querySelectorAll('nav button').forEach(b=> b.addEventListener('click',()=>{ S.tab=b.dataset.tab; window.scrollTo(0,0); render(); }));
+$('#settingsBtn').addEventListener('click', sheetSettings);
+
+document.addEventListener('click', async (ev)=>{
+  const t = ev.target.closest('[data-act]'); if(!t) return;
+  const v = t.dataset.v;
+  switch(t.dataset.act){
+    case 'tab': S.tab=v; render(); break;
+    case 'cust': sheetCustomer(v); break;
+    case 'pay': sheetPayment(v); break;
+    case 'return': sheetReturn(v); break;
+    case 'newCust': sheetCustomerForm(null); break;
+    case 'editCust': sheetCustomerForm(v); break;
+    case 'demo': t.disabled=true; t.textContent='Loading…'; await loadDemo(); break;
+    case 'loadFor': closeSheet(); S._sale=Object.assign(S._sale||{},{cid:v,date:today(),unit:'bag',bagkg:S.settings.bag||50,bags:'',kg:'',rate:S.settings.rate||'',variety:'Bellary',note:''}); S.tab='sale'; render(); break;
+    case 'copyStmt': {
+      const txt=statementText(v);
+      try{ await navigator.clipboard.writeText(txt); toast('Statement copied'); }
+      catch(e){ openSheet(`<div><h3>Statement</h3><textarea rows="12" style="margin-top:10px">${esc(txt)}</textarea></div>`); }
+      break;
+    }
+    case 'undoLast': {
+      const e = entriesOf(v).slice(-1)[0]; if(!e) break;
+      if(confirm('Delete the latest entry for this shop?')){ closeSheet(); await removeEntry(v,e.id,e.date); toast('Entry deleted'); }
+      break;
+    }
+    case 'saveSale': {
+      const d=S._sale;
+      const kgs = d.unit==='bag' ? (Number(d.bags)||0)*(Number(d.bagkg)||0) : (Number(d.kg)||0);
+      const amount = kgs*(Number(d.rate)||0);
+      if(!d.cid || !amount){ toast('Pick a shop, quantity and rate'); break; }
+      await addEntry(d.cid,{type:'sale',date:d.date,qty:kgs,rate:Number(d.rate),amount,variety:d.variety,note:d.note});
+      S.settings.rate=Number(d.rate); S.settings.bag=Number(d.bagkg)||S.settings.bag; Store.saveSettings();
+      const nm=custName(d.cid);
+      S._sale={cid:'',date:today(),unit:d.unit,bags:'',bagkg:d.bagkg,kg:'',rate:d.rate,variety:d.variety,note:''};
+      render(); toast(money(amount)+' load to '+nm);
+      break;
+    }
+    case 'csv': {
+      const r=S._range;
+      const rows=[['Date','Shop','Type','Qty kg','Rate','Amount','Mode/Note']];
+      allEntries().filter(e=>e.date>=r.from&&e.date<=r.to).reverse().forEach(e=>
+        rows.push([e.date,custName(e.cid),e.type,e.qty||'',e.rate||'',e.amount,e.mode||e.note||'']));
+      offerCSV('daybook-'+r.from+'-to-'+r.to+'.csv', rows); break;
+    }
+    case 'csvDues': {
+      const rows=[['Shop','Area','Phone','Last paid','Balance']];
+      S.customers.map(c=>({c,b:balanceOf(c.id)})).sort((a,b)=>b.b-a.b).forEach(x=>
+        rows.push([x.c.name,x.c.area||'',x.c.phone||'',lastPaidDate(x.c.id)||'',Math.round(x.b)]));
+      offerCSV('outstanding-'+today()+'.csv', rows); break;
+    }
+  }
+});
+
+// live form binding for the sale screen / range / search
+document.addEventListener('input', (ev)=>{
+  const f=ev.target.dataset.f, r=ev.target.dataset.r;
+  if(f){ S._sale[f]=ev.target.value;
+    if(f==='cid'||f==='rate'||f==='bags'||f==='kg'||f==='bagkg'){ const p=window.scrollY; render(); window.scrollTo(0,p); }
+    return; }
+  if(r){ S._range[r]=ev.target.value; const p=window.scrollY; render(); window.scrollTo(0,p); return; }
+  if(ev.target.id==='cq'){ S._cq=ev.target.value; const p=window.scrollY; render(); window.scrollTo(0,p); $('#cq')&&$('#cq').focus(); return; }
+  if(ev.target.id==='kq'){ S._kq=ev.target.value; const p=window.scrollY; render(); window.scrollTo(0,p); $('#kq')&&$('#kq').focus(); return; }
+});
+document.addEventListener('click',(ev)=>{
+  const c=ev.target.closest('.chip[data-f]'); if(!c) return;
+  S._sale[c.dataset.f]=c.dataset.v; render();
+});
+
+/* ---------- boot ---------- */
+render();
+Store.init(()=>{ render(); });
+})();
+</script>
+</body>
+</html>
